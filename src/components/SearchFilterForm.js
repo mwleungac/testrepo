@@ -40,14 +40,14 @@ class SearchFilterForm extends Component {
                     <Form.Item label="And the duration is">
                         <Select placeholder="Dur. (hrs)" style={{ width: 110 }}>
                             {DURATION_DROPDOWN.map((duration_amount) => (
-                                <Option value={duration_amount}>{duration_amount}</Option>
+                                <Option key={"dur_" + duration_amount} value={duration_amount}>{duration_amount}</Option>
                             ))}
                         </Select>
                     </Form.Item>
                     <Form.Item label="At">
                         <Select placeholder="Select Location" style={{ width: 180 }}>
-                            {this.state.locations.map((duration_amount) => (
-                                <Option value={duration_amount}>{duration_amount}</Option>
+                            {this.state.locations.map((location) => (
+                                <Option key={"loc_" + location} value={location}>{location}</Option>
                             ))}
                         </Select>
                     </Form.Item>

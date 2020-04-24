@@ -11,7 +11,7 @@ class ParkingLotList extends Component {
         }
     }
 
-    componentWillMount() {;
+    componentDidMount() {;
         ParkGuideApi.getAllParkingLots().then((response) => {
             const recievedParkingLots = response.data;
             this.setState({ parkingLots: recievedParkingLots });
