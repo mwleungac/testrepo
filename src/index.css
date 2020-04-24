@@ -32,9 +32,9 @@ code {
 }
 
 .layoutHeader {
-  background: none !important;
+  background: #93b5c0 !important;
   color: none;
-  opacity: 1;
+  opacity: 0.88;
   transition: all 0.2s ease-in-out;
   position: 'fixed';
   z-index: 1;
@@ -45,6 +45,7 @@ code {
   background: none !important;
   color: none;
   opacity: 1;
+  margin-top: 100px;
 }
 
 .loginAndRegister {
@@ -58,28 +59,44 @@ code {
   margin-top: 64;
 }
 
-.searchForm {
-  max-width: 500px;
-  float: right;
-  margin: 30px;
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 300px;
+  line-height: 300px;
+  overflow: hidden;
 }
 
-.banner {
+.searchForm {
+  min-width: 500px;
+  float: right;
+  margin-right: 60px;
+}
+
+.resultButton {
+  float: right;
+}
+
+.advanceFilterButton {
+  width: 150px;
+}
+
+.formArea {
   width: 100%;
-  height: 400px;
-  background:url('../src/img/banner.png');
+  min-height: 400px;
+  padding-top: 150px;
+  background:url('./img/banner.png');
   background-repeat: no-repeat;
 }
 
-.banner > div {
+.formArea > div {
   width: 300px;
 }
 
 .parkingLotCard {
   display: inline-block;
   margin: 5px !important;
-  width: 250px;
-  height: 200px;
+  width: 350px;
+  height: 300px;
   background-color: #23242e !important;
   color: white !important;
 }

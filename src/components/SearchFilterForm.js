@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Radio } from 'antd';
+import { DatePicker, Form, Input, Button, Radio } from 'antd';
+
+const { RangePicker } = DatePicker
 
 class SearchFilterForm extends Component {
     render() {
@@ -7,18 +9,18 @@ class SearchFilterForm extends Component {
             <div className="searchForm">
                 <Form>
                     <Form.Item label="I'm looking for a carpark from">
-                    <Input placeholder="input placeholder" />
+                    <RangePicker />
                     </Form.Item>
                     <Form.Item label="At">
                     <Input placeholder="input placeholder" />
                     </Form.Item>
                     <Form.Item label="Advanced filter" name="layout">
-                    <Radio.Group>
-                        <Radio.Button value="horizontal">Off</Radio.Button>
-                        <Radio.Button value="vertical">On</Radio.Button>
+                    <Radio.Group defaultValue="off">
+                        <Radio.Button className="advanceFilterButton" value="off">Off</Radio.Button>
+                        <Radio.Button className="advanceFilterButton" value="on">On</Radio.Button>
                     </Radio.Group>
                     </Form.Item>
-                    <Button type="primary">Show Results</Button>
+                    <Button className="resultButton" type="primary">Show Results</Button>
                 </Form>
             </div>
         );

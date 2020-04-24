@@ -4,9 +4,14 @@ import SearchFilterForm from './SearchFilterForm';
 class Banner extends Component {
     render() {
         return (
-            <div className="banner">
-                <SearchFilterForm />
-            </div>
+            <React.Fragment>
+                {/* <div>
+                    <Trailor />
+                </div> */}
+                <div className="formArea">
+                    <SearchFilterForm />
+                </div>
+            </React.Fragment>
         );
     }
 }
