@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css';
 import { Button, Layout, Space } from 'antd';
 import MainContainer from './components/MainContainer'
+import { CarOutlined } from '@ant-design/icons';
 
 const { Header, Content, Footer } = Layout;
 
@@ -12,6 +13,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Layout className="layout">
     <Header className="layoutHeader">
+      <CarOutlined className="headerLogo" />
       <div className="loginAndRegister">
         <Space>
         <Button type="primary">Login</Button>
@@ -22,7 +24,7 @@ ReactDOM.render(
     <Content className="layoutContent">
       <MainContainer />
     </Content>
-    <Footer id="layoutFooter" style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+    <Footer id="layoutFooter" style={{ textAlign: 'center' }}>All the right reserved by 500-YourThingIsBroken @copyright</Footer>
   </Layout>
   </React.StrictMode>,
   document.getElementById('root')

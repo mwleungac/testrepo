@@ -4,11 +4,13 @@ import { Carousel } from 'antd';
 class Trailor extends Component {
     render() {
         return (
-            <Carousel autoplay className="trailor">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTK1LBFcwy1lhdWe4NMgArY17m3grSfz3DlVxxUDUP6D12Kcaik&usqp=CAU" alt="Smiley face" height="42" width="42" />
-                <img src="https://www.w3schools.com/images/lamp.jpg" alt="Smiley face" height="42" width="42" />
-                <img src="https://www.w3schools.com/images/lamp.jpg" alt="Smiley face" height="42" width="42" />
-            </Carousel>
+            <div className="trailor">
+                <Carousel autoplay >
+                    <img src="https://cdn.asiatatler.com/asiatatler/i/hk/2018/11/05091435-performance-header-2_cover_1400x680.jpg" alt="Smiley face" />
+                    <img src="https://www.newtownplaza.com.hk/sites/default/files/2017-10/fashion_0.jpg" alt="Smiley face" />
+                    <img src="https://foodscene.deliveroo.hk/assets/images/blogs/foodscene.deliveroo.hk/en/promotions/1VOg9DX-A_uM3YHc33XVGrWWF8fDcoNFSftSn95R9w6Y/h_20190520_double20_blogpost_en.jpg?v=1.01" alt="Smiley face" />
+                </Carousel>
+            </div>
         );
     }
 }

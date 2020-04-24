@@ -5,9 +5,6 @@ class Banner extends Component {
     render() {
         return (
             <React.Fragment>
-                {/* <div>
-                    <Trailor />
-                </div> */}
                 <div className="formArea">
                     <SearchFilterForm />
                 </div>
