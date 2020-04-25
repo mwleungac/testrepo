@@ -3,10 +3,10 @@ import Banner from "./Banner";
 import ParkingLotList from "./ParkingLotList";
 import { Divider } from "antd";
 
-class MainContainer extends Component {
+class HomePageContainer extends Component {
   render() {
     return (
-      <div className="MainContainer">
+      <div className="HomePageContainer">
         <Banner />
         <Divider className="divider" />
         <ParkingLotList />
@@ -15,4 +15,4 @@ class MainContainer extends Component {
   }
 }
 
-export default MainContainer;
+export default HomePageContainer;

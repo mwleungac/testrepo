@@ -4,13 +4,16 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import "antd/dist/antd.css";
 import { Button, Layout, Space } from "antd";
-import MainContainer from "./components/MainContainer";
+import HomePageContainer from "./components/HomePageContainer";
+import SearchPageContainer from "./components/SearchPageContainer";
 import { CarOutlined } from "@ant-design/icons";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const { Header, Content, Footer } = Layout;
 
 ReactDOM.render(
   <React.StrictMode>
+    <Router>
     <Layout className="layout">
       <Header className="layoutHeader">
         <CarOutlined className="headerLogo" />
@@ -22,12 +25,15 @@ ReactDOM.render(
         </div>
       </Header>
       <Content className="layoutContent">
-        <MainContainer />
+        <Route exact={true} path="/" component={HomePageContainer} />
+        <Route path="/search" component={SearchPageContainer} />
+        {/* <Route path="/user-profile" component={} /> */}
       </Content>
       <Footer id="layoutFooter" style={{ textAlign: "center" }}>
         All the right reserved by 500-YourThingIsBroken @copyright
       </Footer>
     </Layout>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
