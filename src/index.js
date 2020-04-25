@@ -10,6 +10,7 @@ import { CarOutlined } from "@ant-design/icons";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import LoginPage from "./components/LoginPage"
 import RegisterPage from "./components/RegisterPage";
+import UserProfile from "./components/UserProfile";
 const { Header, Content, Footer } = Layout;
 
 ReactDOM.render(
@@ -31,6 +32,7 @@ ReactDOM.render(
           <Route path="/search" component={SearchPageContainer} />
           <Route path="/LoginPage" component={LoginPage} />
           <Route path="/RegisterPage" component={RegisterPage} />
+          <Route path="/UserProfile" component={UserProfile} />
           {/* <Route path="/user-profile" component={} /> */}
         </Content>
         <Footer id="layoutFooter" style={{ textAlign: "center" }}>
