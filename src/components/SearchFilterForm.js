@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Radio, DatePicker, TimePicker, Form, Button, Switch, Select } from 'antd';
 import { DURATION_DROPDOWN } from '../constants/constants';
 import ParkGuideApi from '../apis/ParkGuideApi';
+import { CheckOutlined, FilePdfOutlined, FileJpgOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -53,13 +54,15 @@ class SearchFilterForm extends Component {
                     </Form.Item>
                     <Form.Item label="Advanced filter">
                     <Switch onChange={this.advanceSearchOnChange} />
-                    <div className="" style={{ display: this.state.advancedSearchDisplay }}>
+                    </Form.Item>
+                    <Form.Item style={{ display: this.state.advancedSearchDisplay }}>
                         <Radio.Group defaultValue="a" size="large">
-                            <Radio.Button value="electric">Electric Car</Radio.Button>
-                            <Radio.Button value="motor">Motor Bike</Radio.Button>
-                            <Radio.Button value="disability">Disability (not brain)</Radio.Button>
+                            <div className="advanceSearchRadio">
+                                <Radio.Button value="electric"><CheckOutlined /></Radio.Button>
+                                <Radio.Button value="motor"><FilePdfOutlined /></Radio.Button>
+                                <Radio.Button value="disability"><FileJpgOutlined /></Radio.Button>
+                            </div>
                         </Radio.Group>
-                    </div>
                     </Form.Item>
                     <Button className="resultButton" type="primary">Show Results</Button>
                 </Form>
