@@ -4,6 +4,7 @@ import axios from 'axios'
 import { NavLink, WithRouter, Route } from "react-router-dom";
 import { Input, Button } from 'antd'
 import RegisterPage from './RegisterPage';
+import UserProfile from './UserProfile';
 
 export default class Facebook extends Component {
     constructor(props) {
@@ -27,7 +28,7 @@ export default class Facebook extends Component {
     }
     getThisMemberCarLicense() {
 
-        axios.get('http://localhost:8080/rest/parkguide/members/' + this.state.userID)
+        axios.get('http://CHIURE-w10-3:8082/rest/parkguide/members/' + this.state.userID)
 
             .then(response => {
                 if (response.data.carLicense != null) {
@@ -60,7 +61,7 @@ export default class Facebook extends Component {
 
         }
 
-        axios.post("http://localhost:8080/rest/parkguide/members", book)
+        axios.post("http://CHIURE-w10-3:8082/rest/parkguide/members", book)
             .then(response => {
                 if (response.data != null) {
                     this.setState(this.initialState)
@@ -148,8 +149,10 @@ export default class Facebook extends Component {
 
         return (
             <div>
-                {fbContent}
+              <div>{fbContent}</div>  
+                
             </div>
+        
         )
     }
 }
