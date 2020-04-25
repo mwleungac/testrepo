@@ -12,6 +12,8 @@ code {
     monospace;
 }
 
+/* ------------------------ index.js --------------------------- */
+
 .layout {
   background: #b1d9e7 !important;
 }
@@ -63,6 +65,8 @@ code {
   margin-top: 20px;
 }
 
+/* ------------------------ Trailor.js --------------------------- */
+
 .ant-carousel .slick-slide {
   text-align: center;
   height: 300px;
@@ -74,6 +78,8 @@ code {
   max-height: 400px;
   object-fit: contain;
 }
+
+/* ------------------------ SearchForm --------------------------- */
 
 .searchForm {
   min-width: 500px;
@@ -91,7 +97,6 @@ code {
   max-width: auto;
   display: inline-flex;
   margin-right: 10px;
-  /* background: none; */
 }
 
 .advanceSearchRadio > .ant-radio-button-wrapper img {
@@ -111,6 +116,8 @@ code {
   width: 300px;
 }
 
+/* ------------------------ ParkingList.js --------------------------- */
+
 .parkingLotCard {
   display: inline-flex;
   margin: 5px !important;
@@ -126,8 +133,4 @@ code {
 
 .ant-card-body {
   width: 100%;
-}
-
-.divider {
-  color: black;
 }
