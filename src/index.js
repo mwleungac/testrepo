@@ -7,15 +7,17 @@ import { Button, Layout, Space } from "antd";
 import HomePageContainer from "./components/HomePageContainer";
 import SearchPageContainer from "./components/SearchPageContainer";
 import { CarOutlined } from "@ant-design/icons";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { Router, Route, NavLink, Switch } from "react-router-dom";
 import LoginPage from "./components/LoginPage"
 import RegisterPage from "./components/RegisterPage";
 import UserProfile from "./components/UserProfile";
+import history from './history';
 const { Header, Content, Footer } = Layout;
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router history={history}>
       <Layout className="layout">
         <Header className="layoutHeader">
           <CarOutlined className="headerLogo" />
@@ -29,12 +31,14 @@ ReactDOM.render(
           </div> 
         </Header>
         <Content className="layoutContent">
+          <Switch>
           <Route exact={true} path="/" component={HomePageContainer} />
           <Route path="/search" component={SearchPageContainer} />
           <Route path="/LoginPage" component={LoginPage} />
           <Route path="/RegisterPage" component={RegisterPage} />
           <Route path="/UserProfile" component={UserProfile} />
           {/* <Route path="/user-profile" component={} /> */}
+          </Switch>
         </Content>
         <Footer id="layoutFooter" style={{ textAlign: "center" }}>
           All the right reserved by 500-YourThingIsBroken @copyright

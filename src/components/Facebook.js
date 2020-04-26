@@ -3,8 +3,9 @@ import FacebookLogin from 'react-facebook-login'
 import axios from 'axios'
 import { NavLink, WithRouter, Route } from "react-router-dom";
 import { Input, Button } from 'antd'
-import RegisterPage from './RegisterPage';
+import history from './../history';
 import UserProfile from './UserProfile';
+import RegisterPage from './RegisterPage';
 
 export default class Facebook extends Component {
     constructor(props) {
@@ -71,7 +72,7 @@ export default class Facebook extends Component {
 
                
             })
-           
+           history.push('/UserProfile')
             // this.context.history.push('/RegisterPage')
 
     }
