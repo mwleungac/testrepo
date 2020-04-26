@@ -24,7 +24,6 @@ ReactDOM.render(
           <div className="loginAndRegister">
             <Space>
             <NavLink to="/"> Home </NavLink>
-            <NavLink to="/UserProfile"> Profile </NavLink>
             <NavLink to="/LoginPage"> Login </NavLink>
             <NavLink to="/RegisterPage"> Register </NavLink>
             </Space>

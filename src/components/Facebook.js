@@ -27,8 +27,8 @@ export default class Facebook extends Component {
         userCarLicense: '',
         location: ''
     }
-    getThisMemberCarLicense() {
 
+    getThisMemberCarLicense() {
         axios.get('http://CHIURE-w10-3:8082/rest/parkguide/members/' + this.state.userID)
 
             .then(response => {
@@ -73,7 +73,7 @@ export default class Facebook extends Component {
                
             })
             history.push("/UserProfile/" + this.state.userID)
-            window.location.reload();
+          //  window.location.reload();
             // this.context.history.push('/RegisterPage')
 
     }
@@ -110,7 +110,7 @@ export default class Facebook extends Component {
                         <h2>Welcome {this.state.name}</h2>
                         <p>Your car license : {this.state.userCarLicense}</p>
                         <NavLink to={"/UserProfile/"+ this.state.userID}> User Profile </NavLink>
-
+                        
                     </div>
                 )
             } else {
@@ -141,7 +141,7 @@ export default class Facebook extends Component {
             fbContent = (
                 <FacebookLogin
                     appId="667513370492031"
-                    autoLoad={false}
+                    autoLoad={true}
                     fields="name,email,picture"
                     onClick={this.componentClicked}
                     callback={this.responseFacebook} />
