@@ -36,7 +36,7 @@ ReactDOM.render(
           <Route path="/search" component={SearchPageContainer} />
           <Route path="/LoginPage" component={LoginPage} />
           <Route path="/RegisterPage" component={RegisterPage} />
-          <Route path="/UserProfile" component={UserProfile} />
+          <Route path="/UserProfile/:userParam" component={UserProfile} />
           {/* <Route path="/user-profile" component={} /> */}
           </Switch>
         </Content>

@@ -66,13 +66,14 @@ export default class Facebook extends Component {
             .then(response => {
                 if (response.data != null) {
                     this.setState(this.initialState)
-                    alert("Saved successfully" + this.state.redirect)
+                    alert("Saved successfully")
                     
                 }
 
                
             })
-           history.push('/UserProfile')
+            history.push("/UserProfile/" + this.state.userID)
+            window.location.reload();
             // this.context.history.push('/RegisterPage')
 
     }
@@ -108,7 +109,7 @@ export default class Facebook extends Component {
 
                         <h2>Welcome {this.state.name}</h2>
                         <p>Your car license : {this.state.userCarLicense}</p>
-                        <NavLink to="/UserProfile"> User Profile </NavLink>
+                        <NavLink to={"/UserProfile/"+ this.state.userID}> User Profile </NavLink>
 
                     </div>
                 )

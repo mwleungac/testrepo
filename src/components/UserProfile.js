@@ -10,7 +10,8 @@ export default class UserProfile extends Component {
             userId: '',
             fullName: '',
             carLicense: '',
-            location: ''
+            location: '',
+            userParam:''
 
         }
 
@@ -26,7 +27,7 @@ export default class UserProfile extends Component {
     }
 
     onUpdate(event) {
-  
+         const userParam = this.props.match.params.userParam;
         event.preventDefault()
         //alert(this.state.userID + '   ' + this.state.name + '   ' + this.state.carLicense)
 
@@ -38,43 +39,46 @@ export default class UserProfile extends Component {
 
         }
 
-        axios.put("http://CHIURE-w10-3:8082/rest/parkguide/members/000002221", updatedItems)
+        axios.put("http://CHIURE-w10-3:8082/rest/parkguide/members/" + userParam, updatedItems)
             .then(response => {
                 if (response.data != null) {
                     this.setState(this.state)
-                    alert("Saved successfully")
-                    
-                }
-
-               
+                    alert("Saved successfully")                  
+                }     
             })
-           
+      
             // this.context.history.push('/RegisterPage')
 
     }
 
+    
     componentDidMount() {
-        axios.get("http://CHIURE-w10-3:8082/rest/parkguide/members/000002221")
+        const userParam = this.props.match.params.userParam;
+        console.log('this   '+ userParam);
+
+        axios.get("http://CHIURE-w10-3:8082/rest/parkguide/members/" + userParam)
             // .then(response=>console.log(response.data))
             .then(response => {
                 this.setState({
                     userId: response.data.id,
                     fullName: response.data.fullName,
                     carLicense: response.data.carLicense,
-                    location: response.data.location
+                    location: response.data.location,
 
                 })
                 console.log(response.data.id + '   ' + response.data.fullName)
             })
     }
 
+    
 
     render() {
         const { carLicense, location } = this.state
-
+       
         return (
-
+        
             <div>
+              
                 <h1>This is a user profile</h1>
                 {this.props.value}
                 <form ><Input required autoComplete="off" name="carLicense" value={carLicense}
