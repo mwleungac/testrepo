@@ -32,10 +32,10 @@ export default class UserProfile extends Component {
         event.preventDefault()
         //alert(this.state.userID + '   ' + this.state.name + '   ' + this.state.carLicense)
 
-        if (this.state.fullName.length == 0) {
+        if (this.state.fullName.length === 0) {
             alert("Please input your name")
             return null
-            
+
         } else {
             const updatedItems = {
                 id: this.state.userID,

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import "antd/dist/antd.css";
-import { Button, Layout, Space } from "antd";
+import { Layout, Space } from "antd";
 import HomePageContainer from "./components/HomePageContainer";
 import SearchPageContainer from "./components/SearchPageContainer";
 import { CarOutlined } from "@ant-design/icons";

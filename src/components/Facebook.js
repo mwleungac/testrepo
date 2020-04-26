@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import FacebookLogin from 'react-facebook-login'
 import axios from 'axios'
-import { NavLink, WithRouter, Route } from "react-router-dom";
-import { Input, Button } from 'antd'
+import { NavLink } from "react-router-dom";
+import { Input, Button, Form } from 'antd'
 import history from './../history';
-import UserProfile from './UserProfile';
-import RegisterPage from './RegisterPage';
 
 export default class Facebook extends Component {
     constructor(props) {
@@ -35,7 +33,7 @@ export default class Facebook extends Component {
                 if (response.data.carLicense != null) {
                     this.setState({
                         userCarLicense: response.data.carLicense
-                       
+
                     })
                     // console.log(response.data.carLicense)
                 }
@@ -50,31 +48,41 @@ export default class Facebook extends Component {
     }
 
     onSubmit(event) {
-  
+
         event.preventDefault()
         //alert(this.state.userID + '   ' + this.state.name + '   ' + this.state.carLicense)
 
-        const book = {
-            id: this.state.userID,
-            fullName: this.state.name,
-            carLicense: this.state.carLicense,
-            location: this.state.location
+        if (this.state.carLicense.length === 0 || this.state.location.length === 0) {
+            alert('Please input required items')
+            return null
 
+        } else {
+            const userInfo = {
+                id: this.state.userID,
+                fullName: this.state.name,
+                carLicense: this.state.carLicense,
+                location: this.state.location
+
+            }
+
+            console.log({ userInfo })
+            axios.post("http://CHIURE-w10-3:8082/rest/parkguide/members", userInfo)
+
+                .then(response => {
+                    if (response.data != null) {
+                        this.setState(this.initialState)
+                        alert("Saved successfully")
+
+                    }
+
+                })
         }
 
-        axios.post("http://CHIURE-w10-3:8082/rest/parkguide/members", book)
-            .then(response => {
-                if (response.data != null) {
-                    this.setState(this.initialState)
-                    alert("Saved successfully")
-                    
-                }
 
-               
-            })
-            history.push("/UserProfile/" + this.state.userID)
-          //  window.location.reload();
-            // this.context.history.push('/RegisterPage')
+        history.push("/UserProfile/" + this.state.userID)
+        window.location.reload();
+
+        // this.context.history.push('/RegisterPage')
 
     }
 
@@ -108,9 +116,10 @@ export default class Facebook extends Component {
                     }}>
 
                         <h2>Welcome {this.state.name}</h2>
+
                         <p>Your car license : {this.state.userCarLicense}</p>
-                        <NavLink to={"/UserProfile/"+ this.state.userID}> User Profile </NavLink>
-                        
+                        <NavLink to={"/UserProfile/" + this.state.userID}> User Profile </NavLink>
+
                     </div>
                 )
             } else {
@@ -120,17 +129,37 @@ export default class Facebook extends Component {
                         margin: 'auto',
                         padding: '20px'
                     }}>
-                        <h2>No car license</h2>
-                        <form><Input required autoComplete="off" name="carLicense" value={carLicense}
-                            onChange={this.onChange}
-                            type="text" placeholder="Enter car license"></Input>
+                        <h2>Please input the followings to proceed</h2>
+                        <Form labelCol={{
+                            span: 4,
+                        }}
+                            wrapperCol={{
+                                span: 14,
+                            }}
+                            layout="horizontal">
 
-                            <Input required autoComplete="off" name="location" value={location}
+                            <Form.Item label="Your car license: ">
+                                <Input required autoComplete="off" name="carLicense" value={carLicense}
+                                    onChange={this.onChange}
+                                    type="text" placeholder="Your car license"></Input>
+                            </Form.Item>
+
+                            <Form.Item label="Preferred location: ">
+                                <Input required autoComplete="off" name="location" value={location}
+                                    onChange={this.onChange}
+                                    type="text" placeholder="Your preferred location"></Input>
+                            </Form.Item>
+
+                            {/* <Input required autoComplete="off" name="carLicense" value={carLicense}
+                            onChange={this.onChange}
+                            type="text" placeholder="Enter car license"></Input> */}
+
+                            {/* <Input required autoComplete="off" name="location" value={location}
                                 onChange={this.onChange}
-                                type="text" placeholder="Enter preferred location"></Input>
+                                type="text" placeholder="Enter preferred location"></Input> */}
                             <Button size="sm" type="submit" onClick={this.onSubmit}>Submit</Button>
 
-                        </form>
+                        </Form>
 
                     </div>
                 )
@@ -139,22 +168,26 @@ export default class Facebook extends Component {
         } else {
 
             fbContent = (
-                <FacebookLogin
-                    appId="667513370492031"
-                    autoLoad={true}
-                    fields="name,email,picture"
-                    onClick={this.componentClicked}
-                    callback={this.responseFacebook} />
+                <div>
+                    <p>Click to login</p>
+                    <FacebookLogin
+                        appId="667513370492031"
+                        autoLoad={true}
+                        fields="name,email,picture"
+                        onClick={this.componentClicked}
+                        callback={this.responseFacebook} />
+
+                </div>
             )
 
         }
 
         return (
             <div>
-              <div>{fbContent}</div>  
-                
+                <div>{fbContent}</div>
+
             </div>
-        
+
         )
     }
 }
